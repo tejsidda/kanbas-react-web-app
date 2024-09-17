@@ -121,9 +121,7 @@ Your favorite books (in no particular order)
    src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
   />
   <br />
-  Loading a local image:
-  <br />
-  <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" />
+
 </div>
 
 
