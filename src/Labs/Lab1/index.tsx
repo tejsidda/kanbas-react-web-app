@@ -254,7 +254,7 @@ Your favorite books (in no particular order)
 Please
 <a id="wd-lipsum" href="https://www.lipsum.com">click here</a>
 to get dummy text<br/> 
-Github Repository
+Github Repository:
 <a id="wd-github" href="https://github.com/tejsidda/kanbas-react-web-app">github link</a>
       </div>
     );
