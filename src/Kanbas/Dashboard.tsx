@@ -21,11 +21,11 @@ export default function Dashboard() {
         {/* Course 2 */}
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/2345/Home">
+                to="/Kanbas/Courses/4100/Home">
             <img src="/images/python.jpg" width={200} alt="Python"/>
             <div>
-              <h5>CS2345 Python Programming</h5>
-              <p className="wd-dashboard-course-title">Intro to Python for Beginners</p>
+              <h5>CS4100 Python Programming</h5>
+              <p className="wd-dashboard-course-title">Python</p>
               <button> Go </button>
             </div>
           </Link>
@@ -33,11 +33,11 @@ export default function Dashboard() {
         {/* Course 3 */}
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/3456/Home">
+                to="/Kanbas/Courses/5600/Home">
             <img src="/images/ai.jpg" width={200} alt="AI"/>
             <div>
-              <h5>CS3456 Artificial Intelligence</h5>
-              <p className="wd-dashboard-course-title">AI Concepts and Applications</p>
+              <h5>CS5600 Artificial Intelligence</h5>
+              <p className="wd-dashboard-course-title">Foundation of AI</p>
               <button> Go </button>
             </div>
           </Link>
@@ -45,11 +45,11 @@ export default function Dashboard() {
         {/* Course 4 */}
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/4567/Home">
-            <img src="/images/webdev.jpg" width={200} alt="Web Development"/>
+                to="/Kanbas/Courses/5200/Home">
+            <img src="/images/webdev.jpg" width={200} alt="Full stack Development"/>
             <div>
-              <h5>CS4567 Web Development</h5>
-              <p className="wd-dashboard-course-title">Building Modern Web Apps</p>
+              <h5>CS5200 Web Development</h5>
+              <p className="wd-dashboard-course-title">Application Development</p>
               <button> Go </button>
             </div>
           </Link>
@@ -61,7 +61,7 @@ export default function Dashboard() {
             <img src="/images/machinelearning.jpg" width={200} alt="Machine Learning"/>
             <div>
               <h5>CS5678 Machine Learning</h5>
-              <p className="wd-dashboard-course-title">ML Algorithms and Models</p>
+              <p className="wd-dashboard-course-title">Algorithms</p>
               <button> Go </button>
             </div>
           </Link>
@@ -69,11 +69,11 @@ export default function Dashboard() {
         {/* Course 6 */}
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/6789/Home">
+                to="/Kanbas/Courses/6700/Home">
             <img src="/images/datascience.jpg" width={200} alt="Data Science"/>
             <div>
-              <h5>CS6789 Data Science</h5>
-              <p className="wd-dashboard-course-title">Analyzing Big Data with Python</p>
+              <h5>CS6700 Data Science</h5>
+              <p className="wd-dashboard-course-title">Big Data</p>
               <button> Go </button>
             </div>
           </Link>
@@ -81,11 +81,11 @@ export default function Dashboard() {
         {/* Course 7 */}
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/7890/Home">
+                to="/Kanbas/Courses/6620/Home">
             <img src="/images/cybersecurity.jpg" width={200} alt="Cybersecurity"/>
             <div>
-              <h5>CS7890 Cybersecurity</h5>
-              <p className="wd-dashboard-course-title">Introduction to Cybersecurity</p>
+              <h5>CS6620 Cybersecurity</h5>
+              <p className="wd-dashboard-course-title">Information System Forensics</p>
               <button> Go </button>
             </div>
           </Link>
