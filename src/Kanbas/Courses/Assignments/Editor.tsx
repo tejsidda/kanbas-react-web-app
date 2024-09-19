@@ -57,9 +57,8 @@ export default function AssignmentEditor() {
             </td>
             <td>
               <select id="wd-display-grade-as">
-                <option value="points">Points</option>
-                <option value="percentage">Percentage</option>
-                <option value="letter-grade">Letter Grade</option>
+                <option value="Percentage">Percentage</option>
+                <option value="Marks">Marks</option>
               </select>
             </td>
           </tr>
@@ -71,9 +70,9 @@ export default function AssignmentEditor() {
             </td>
             <td>
               <select id="wd-submission-type">
-                <option value="online">Online</option>
-                <option value="on-paper">On Paper</option>
-                <option value="external-tool">External Tool</option>
+                <option value="Online">Online</option>
+                <option value="In-Person">In-Person</option>
+                <option value="Reference Link">Reference Link</option>
               </select>
             </td>
           </tr>
@@ -109,13 +108,13 @@ export default function AssignmentEditor() {
             </td>
           </tr>
 
-          {/* Due Date */}
+          {/* Due*/}
           <tr>
             <td align="right" valign="top">
-              <label htmlFor="wd-due-date">Due Date</label>
+              <label htmlFor="wd-due-date">Due</label>
             </td>
             <td>
-              <input id="wd-due-date" type="date" value="2023-12-31" />
+              <input id="wd-due-date" type="date" value="2024-05-13" />
             </td>
           </tr>
 
@@ -125,7 +124,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-available-from">Available From</label>
             </td>
             <td>
-              <input id="wd-available-from" type="date" value="2023-11-01" />
+              <input id="wd-available-from" type="date" value="2024-08-08" />
             </td>
           </tr>
 
@@ -135,7 +134,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-available-until">Available Until</label>
             </td>
             <td>
-              <input id="wd-available-until" type="date" value="2024-01-31" />
+              <input id="wd-available-until" type="date" value="2024-11-08" />
             </td>
           </tr>
         </tbody>
@@ -143,8 +142,8 @@ export default function AssignmentEditor() {
 
       {/* Save and Cancel Buttons */}
       <br />
-      <button>Save</button>{' '}
-      <button>Cancel</button>
+      <button>Cancel</button>{' '}
+      <button>Save</button>
     </div>
   );
 }
