@@ -31,7 +31,7 @@ export default function Assignments() {
         {/* Assignment 2 */}
         <li className="wd-assignment-list-item">
           <Link className="wd-assignment-link" to="/Kanbas/Courses/1234/Assignments/124">
-            A2 - CSS Basics
+            A2 - CSS + BOOTSTRAP
           </Link>
           <div className="wd-assignment-description">
             Multiple Modules |{' '}
@@ -43,7 +43,7 @@ export default function Assignments() {
         {/* Assignment 3 */}
         <li className="wd-assignment-list-item">
           <Link className="wd-assignment-link" to="/Kanbas/Courses/1234/Assignments/125">
-            A3 - JavaScript Fundamentals
+            A3 - JAVASCRIPT + REACT
           </Link>
           <div className="wd-assignment-description">
             Multiple Modules |{' '}
