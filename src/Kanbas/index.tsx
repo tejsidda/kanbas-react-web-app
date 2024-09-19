@@ -12,6 +12,7 @@ export default function Kanbas() {
             <KanbasNavigation />
           </td>
           <td valign="top">
+            <h1>Tej Sidda (SEC-02)</h1>
             <Routes>
               <Route path="/" element={<Navigate to="Account" />} />
               <Route path="/Account/*" element={<Account />} />
