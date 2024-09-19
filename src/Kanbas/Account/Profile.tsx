@@ -3,7 +3,7 @@ export default function Profile() {
   return (
     <div id="wd-profile-screen">
       <h3>Profile</h3>
-      <input id="wd-username" value="alice" placeholder="username" /><br/>
+      <input id="wd-username" value="Tej.Sidda_CS5610.20595.202510" placeholder="username" /><br/>
       <input id="wd-password" value="123" placeholder="password"
              type="password" /><br/>
       <input id="wd-firstname" value="Tej" placeholder="First Name" /><br/>
