@@ -17,12 +17,12 @@ export default function Lab1() {
 
 This is the first paragraph. The paragraph tag is used to format
 vertical gaps between long pieces of text like this one.
-
+</p><p>
 This is the second paragraph. Even though there is a deliberate white
 gap between the paragraph above and this paragraph, by default
 browsers render them as one contiguous piece of text as shown here on
 the right.
-
+</p><p>
 This is the third paragraph. Wrap each paragraph with the paragraph
 tag to tell browsers to render the gaps.
 </p>
