@@ -11,7 +11,17 @@ import Zindex from "./Zindex";
 import Float from "./Float";
 import GridLayout from "./GridLayout";
 import Flex from "./Flex";
+
+
 import ReactIconsSampler from "./ReactIcons";
+import BootstrapGrids from "./BootstrapGrids";
+import ScreenSizeLabel from "./ScreenSizeLabel";
+import BootstrapTables from "./BootstrapTables";
+import BootstrapList from "./BootstrapLists";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapNavigation from "./BootstrapNavigation";
+
+
 export default function Lab2() {
   return (
     
@@ -74,6 +84,16 @@ This heading has same style as paragraph above
 <GridLayout/>
 <Flex/>
 <ReactIconsSampler/>
+<div className="container">
+      <h2>Lab 2 - Cascading Style Sheets</h2>
+      <h3>Styling with the STYLE attribute</h3>
+      </div>
+    <BootstrapGrids/>
+    <ScreenSizeLabel/>
+    <BootstrapTables/>
+    <BootstrapList/>
+    <BootstrapForms/>
+    <BootstrapNavigation/>
 </div>
   );
 }
