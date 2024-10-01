@@ -55,7 +55,11 @@ export default function Profile() {
         <option value="STUDENT">Student</option>
       </select>
       
-      <Link to="/Kanbas/Account/Signin" className="btn btn-primary w-100">Sign out</Link>
+      <Link 
+        to="/Kanbas/Account/Signin" 
+        className="btn btn-danger text-white w-100">
+        Sign out
+      </Link>
     </div>
   );
 }
