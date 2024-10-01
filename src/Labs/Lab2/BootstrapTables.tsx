@@ -33,6 +33,8 @@ export default function BootstrapTables(){
            <td>Very</td><td>long</td><td>set</td><td>of</td><td>columns</td>
         </tr>
       </tbody>
+
+      
     </table>
   </div>
 </div>
