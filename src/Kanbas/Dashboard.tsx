@@ -32,7 +32,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/4100/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Python Programming"/>
+              <img src="/images/python.jpg" width="100%" height={160} alt="Python Programming"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS4100 Python Programming</h5>
                 <p className="wd-dashboard-course-title card-text">Python</p>
@@ -49,7 +49,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/5600/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Artificial Intelligence"/>
+              <img src="/images/AI.jpeg" width="100%" height={160} alt="Artificial Intelligence"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS5600 Artificial Intelligence</h5>
                 <p className="wd-dashboard-course-title card-text">Foundation of AI</p>
@@ -66,7 +66,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/5200/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Web Development"/>
+              <img src="/images/webdev.jpg" width="100%" height={160} alt="Web Development"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS5200 Web Development</h5>
                 <p className="wd-dashboard-course-title card-text">Application Development</p>
@@ -83,7 +83,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/5678/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Machine Learning"/>
+              <img src="/images/Machinelearning.jpg" width="100%" height={160} alt="Machine Learning"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS5678 Machine Learning</h5>
                 <p className="wd-dashboard-course-title card-text">Algorithms</p>
@@ -100,7 +100,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/6700/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Data Science"/>
+              <img src="/images/Datascience.jpg" width="100%" height={160} alt="Data Science"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS6700 Data Science</h5>
                 <p className="wd-dashboard-course-title card-text">Big Data</p>
@@ -117,7 +117,7 @@ export default function Dashboard() {
               className="wd-dashboard-course-link text-decoration-none text-dark"
               to="/Kanbas/Courses/6620/Home"
             >
-              <img src="/images/reactjs.jpg" width="100%" height={160} alt="Cybersecurity"/>
+              <img src="/images/cyber-security.jpg" width="100%" height={160} alt="Cybersecurity"/>
               <div className="card-body">
                 <h5 className="wd-dashboard-course-title card-title">CS6620 Cybersecurity</h5>
                 <p className="wd-dashboard-course-title card-text">Information System Forensics</p>
