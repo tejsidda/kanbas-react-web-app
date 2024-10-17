@@ -4,7 +4,6 @@ import * as db from "../../Database";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
-
   
   const assignment = db.assignments.find((a) => a._id === aid);
 
@@ -31,14 +30,14 @@ export default function AssignmentEditor() {
               id="wd-description"
               rows={5}
               className="form-control"
-              defaultValue="The assignment is available online. Submit a link to the landing page of your project."
+              defaultValue={assignment.description}
             />
           </div>
 
           {/* Points */}
           <div className="mb-3 border-bottom pb-3">
             <label htmlFor="wd-points" className="form-label">Points</label>
-            <input id="wd-points" type="number" defaultValue={100} className="form-control" />
+            <input id="wd-points" type="number" defaultValue={assignment.points} className="form-control" />
           </div>
 
           {/* Assignment Group */}
@@ -105,19 +104,19 @@ export default function AssignmentEditor() {
           {/* Due */}
           <div className="mb-3 border-bottom pb-3">
             <label htmlFor="wd-due-date" className="form-label">Due</label>
-            <input id="wd-due-date" type="date" defaultValue="2024-05-13" className="form-control" />
+            <input id="wd-due-date" type="date" defaultValue={assignment.dueDate} className="form-control" />
           </div>
 
           {/* Available From */}
           <div className="mb-3 border-bottom pb-3">
             <label htmlFor="wd-available-from" className="form-label">Available From</label>
-            <input id="wd-available-from" type="date" defaultValue="2024-08-08" className="form-control" />
+            <input id="wd-available-from" type="date" defaultValue={assignment.availableDate} className="form-control" />
           </div>
 
           {/* Available Until */}
           <div className="mb-3">
             <label htmlFor="wd-available-until" className="form-label">Available Until</label>
-            <input id="wd-available-until" type="date" defaultValue="2024-11-08" className="form-control" />
+            <input id="wd-available-until" type="date" className="form-control" />
           </div>
 
           {/* Save and Cancel Buttons */}
