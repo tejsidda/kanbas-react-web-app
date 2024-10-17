@@ -47,6 +47,8 @@ console.log('Hello World!');
       <ImpliedReturn/>
       <TemplateLiterals/>
       <SimpleArrays/>
+      <ArrayIndexAndLength/>
+      <AddingAndRemovingToFromArrays/>
       <ForLoops/>
       <MapFunction/>
       <FindIndex/>
