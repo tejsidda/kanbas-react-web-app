@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addAssignment, updateAssignment } from './reducer';
+import * as assignmentClient from "./client";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams<{ cid: string; aid?: string }>();
@@ -15,6 +16,18 @@ export default function AssignmentEditor() {
   const isNew = aid === 'new';
 
   
+  const handleAddAssignment = async () => {
+    const newAssignment = { ...formData }
+    const status = await assignmentClient.createAssignment(cid as string, newAssignment);
+    dispatch(addAssignment(newAssignment)); // Dispatch Redux action
+  };
+
+  const handleUpdateAssignment = async () => {
+    const updatedAssignment = { ...formData } 
+    const status = await assignmentClient.updateAssignment(updatedAssignment);
+    dispatch(updateAssignment(updatedAssignment)); // Dispatch Redux action
+  };
+
   const [assignment, setAssignment] = useState<any>(null);
   const [formData, setFormData] = useState({
     _id: '',
@@ -77,11 +90,10 @@ export default function AssignmentEditor() {
 
   const handleSave = () => {
     if (isNew) {
-      dispatch(
-        addAssignment({ ...formData, _id: new Date().getTime().toString() })
-      );
+      handleAddAssignment()
     } else {
-      dispatch(updateAssignment(formData));
+      console.log("Update called")
+      handleUpdateAssignment()
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };

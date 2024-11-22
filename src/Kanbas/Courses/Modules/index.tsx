@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import * as db from "../../Database";
+import * as modulesClient from "./client";
 import {
+  setModules,
   addModule as addModuleAction,
   editModule as editModuleAction,
   updateModule as updateModuleAction,
   deleteModule as deleteModuleAction,
 } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
+import * as coursesClient from "../client";
+
 
 import ModulesControls from "./ModuleControls";
 import LessonControlButtons from "./LessonControlButtons";
@@ -20,21 +23,43 @@ export default function Modules() {
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
 
+  const fetchModules = async () => {
+    const modules = await coursesClient.findModulesForCourse(cid as string);
+    dispatch(setModules(modules));
+  };
+  useEffect(() => {
+    fetchModules();
+  }, []);
+
+
+  const createModuleForCourse = async () => {
+    if (!cid) return;
+    const newModule = { name: moduleName, course: cid };
+    const module = await coursesClient.createModuleForCourse(cid, newModule);
+    dispatch(addModuleAction(module));
+  };
+
+  const removeModule = async (moduleId: string) => {
+    await modulesClient.deleteModule(moduleId);
+    dispatch(deleteModuleAction(moduleId));
+  };
+
+  const saveModule = async (module: any) => {
+    await modulesClient.updateModule(module);
+    dispatch(updateModuleAction(module));
+  };
+
+
+
   return (
     <div>
-      <ModulesControls
-        moduleName={moduleName}
-        setModuleName={setModuleName}
-        addModule={() => {
-          dispatch(addModuleAction({ name: moduleName, course: cid }));
-          setModuleName("");
-        }}
-      />
+       <ModulesControls setModuleName={setModuleName} moduleName={moduleName} addModule={createModuleForCourse} />
+
       <br />
       <br />
       <ul id="wd-modules" className="list-group rounded-0">
         {modules
-          .filter((module: any) => module.course === cid)
+          // .filter((module: any) => module.course === cid)
           .map((module: any) => (
             <li
               key={module._id}
@@ -54,18 +79,16 @@ export default function Modules() {
                     }
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        dispatch(updateModuleAction({ ...module, editing: false }));
+                        saveModule({ ...module, editing: false });
                       }
                     }}
                     defaultValue={module.name}
                   />
                 )}
                 <div className="ms-auto">
-                  <ModuleControlButtons
-                    moduleId={module._id}
-                    deleteModule={(moduleId) => {
-                      dispatch(deleteModuleAction(moduleId));
-                    }}
+                <ModuleControlButtons moduleId={module._id}
+               deleteModule={(moduleId) => removeModule(moduleId)}
+
                     editModule={(moduleId) => dispatch(editModuleAction(moduleId))}
                   />
                 </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggleEnrollment } from "./Account/enrollmentReducer";
+import { enrollInCourse, unenrollFromCourse } from "./Account/enrollmentClient";
 
 interface User {
   _id: string;
@@ -23,56 +23,83 @@ interface Enrollment {
 
 interface DashboardProps {
   courses: Course[];
+  enrollments: Enrollment[];
   course: Course;
   setCourse: (course: Course) => void;
   addNewCourse: () => void;
   deleteCourse: (courseId: string) => void;
   updateCourse: () => void;
+  fetchCourses: () => Promise<void>;
+  findAllCourses: () => Promise<void>;
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
   courses,
+  enrollments,
   course,
   setCourse,
   addNewCourse,
   deleteCourse,
   updateCourse,
+  fetchCourses,
+  findAllCourses,
 }) => {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const enrollments: Enrollment[] = useSelector((state: any) => state.enrollmentsReducer);
   const dispatch = useDispatch();
 
   const [showAllCourses, setShowAllCourses] = useState<boolean>(false);
 
- 
+  const handleToggleEnrollment = async (courseId: string) => {
+    const isEnrolled = enrollments.some(
+      (enrollment) =>
+        enrollment.user === currentUser._id && enrollment.course === courseId
+    );
+
+    if (isEnrolled) {
+      await unenrollFromCourse(currentUser._id, courseId);
+    } else {
+      await enrollInCourse(currentUser._id, courseId);
+    }
+
+    // Refresh enrollments and courses after toggling
+    await findAllCourses(); // Fetch updated enrollments
+    await fetchCourses(); // Fetch enrolled courses
+  };
+
+  const toggleShowCourses = async () => {
+    setShowAllCourses(!showAllCourses);
+    if (showAllCourses) {
+      await fetchCourses(); // Fetch enrolled courses
+    } else {
+      await findAllCourses(); // Fetch all courses
+    }
+  };
+
   let displayedCourses = courses;
 
   if (currentUser.role === "STUDENT" && !showAllCourses) {
     displayedCourses = courses.filter((course) =>
       enrollments.some(
         (enrollment) =>
-          String(enrollment.user) === String(currentUser._id) &&
-          String(enrollment.course) === String(course._id)
+          enrollment.user === currentUser._id &&
+          enrollment.course === course._id
       )
     );
   }
-  
 
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
 
-      
       {currentUser.role === "STUDENT" && (
         <button
           className="btn btn-primary float-end"
-          onClick={() => setShowAllCourses(!showAllCourses)}
+          onClick={toggleShowCourses}
         >
-          Enrollments
+          {showAllCourses ? "Show Enrolled Courses" : "Show All Courses"}
         </button>
       )}
 
-     
       {currentUser.role !== "STUDENT" && (
         <h5>
           New Course
@@ -94,16 +121,15 @@ const Dashboard: React.FC<DashboardProps> = ({
       )}
       <br />
 
-     
       {currentUser.role !== "STUDENT" && (
         <>
           <input
-            defaultValue={course.name}
+            value={course.name}
             className="form-control mb-2"
             onChange={(e) => setCourse({ ...course, name: e.target.value })}
           />
           <textarea
-            defaultValue={course.description}
+            value={course.description}
             className="form-control"
             onChange={(e) =>
               setCourse({ ...course, description: e.target.value })
@@ -125,6 +151,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                 enrollment.user === currentUser._id &&
                 enrollment.course === course._id
             );
+
             return (
               <div
                 key={course._id}
@@ -154,7 +181,6 @@ const Dashboard: React.FC<DashboardProps> = ({
                       </p>
                       <button className="btn btn-primary">Go</button>
 
-                     
                       {currentUser.role === "STUDENT" && (
                         <button
                           className={`btn ${
@@ -162,19 +188,13 @@ const Dashboard: React.FC<DashboardProps> = ({
                           } float-end`}
                           onClick={(event) => {
                             event.preventDefault();
-                            dispatch(
-                              toggleEnrollment({
-                                courseId: course._id,
-                                userId: currentUser._id,
-                              })
-                            );
+                            handleToggleEnrollment(course._id);
                           }}
                         >
                           {isEnrolled ? "Unenroll" : "Enroll"}
                         </button>
                       )}
 
-                     
                       {currentUser.role !== "STUDENT" && (
                         <>
                           <button
