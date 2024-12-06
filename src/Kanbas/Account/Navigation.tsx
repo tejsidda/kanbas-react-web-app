@@ -5,12 +5,14 @@ export default function AccountNavigation() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { pathname } = useLocation();
 
-  
+
   const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
+  const adminLinks = currentUser?.role === "ADMIN" ? ["Users"] : [];
+  const allLinks = [...links, ...adminLinks];
 
   return (
     <div id="wd-account-navigation">
-      {links.map((link) => (
+      {allLinks.map((link) => (
         <div key={link}>
           <Link
             to={`/Kanbas/Account/${link}`}
