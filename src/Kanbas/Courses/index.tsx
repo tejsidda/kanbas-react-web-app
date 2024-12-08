@@ -7,9 +7,17 @@ import AssignmentEditor from "./Assignments/Editor";
 import PeopleTable from "./People/Table";
 import { Navigate, Route, Routes ,useParams, useLocation} from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
+import { useEffect } from "react";
 export default function Courses({ courses }: { courses: any[]; }) {
+  console.log("We are in course", courses)
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
+  useEffect(() => {
+    if (!course) {
+      console.error(`Course with ID ${cid} not found`);
+      // Optionally, navigate to a "Not Found" page
+    }
+  }, [cid, course]);
   const { pathname } = useLocation();
   return (
     <div id="wd-courses">
