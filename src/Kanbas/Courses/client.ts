@@ -24,7 +24,7 @@ export const findModulesForCourse = async (courseId: string) => {
 
 
 export const findUsersForCourse = async (courseId: string) => {
-  const response = await axios.get(`${COURSES_API}/${courseId}/users`);
+  const response = await axiosWithCredentials.get(`${COURSES_API}/${courseId}/users`);
   return response.data;
  };
  
@@ -36,7 +36,7 @@ export const fetchAllCourses = async () => {
 };
 
 export const fetchEnrollments = async () => {
-  const { data } = await axios.get(ENROLLMENTS_API);
+  const { data } = await axiosWithCredentials.get(ENROLLMENTS_API);
   // console.log(data);
   return data;
 };
